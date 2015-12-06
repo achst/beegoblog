@@ -5,7 +5,7 @@ Beego Blog
 ###Ubuntu下配置和运行本博客指南
 (Windows上基本类似)
 
-######1 安装配置Golang 
+###### 1 安装配置Golang 
 [参考来源](https://golang.org:https://golang.org/doc/install)
 
 - 1.1 移除已经存在的老版本(安装的过程反过来做)
@@ -25,12 +25,12 @@ sudo gedit /etc/profile
 <pre>
 添加配置到profile文件末尾并保存：
 export GOPATH=[yourOwnGopath]         //[yourOwnGopath]是自己选择的golang项目目录
-export GOBIN=/usr/local/go/bin:${GOPATH//://bin:}/bin 　//"/usr/local/go/bin"是golang安装目录下的bin目录
-export PATH=$PATH:$GOBIN
+export GOROOT=/usr/local/go           //安装目录
+export PATH=$PATH:${GOPATH//://bin:}/bin:/usr/local/go/bin 
 </pre>
 
 
-######2 安装配置Beego Blog
+###### 2 安装配置Beego Blog
 
 - 2.1 Git安装
 <pre>
@@ -51,7 +51,7 @@ go get github.com/mattn/go-sqlite3
 go get github.com/garyburd/redigo/redis   
 </pre>
 
-######3 运行本博客
+###### 3 运行本博客
 
 - 3.1 编译和运行
 <pre>
@@ -65,7 +65,7 @@ firefox http://localhost:8080
 </pre>
 
 
-######4 启用Redis替换SQLite
+###### 4 启用Redis替换SQLite
 
 - 4.1 安装Redis
 <pre>
@@ -99,22 +99,22 @@ requirepass = 123   //Redis验证密码，与4.3保持一致即可
 
 ### 本博客技术架构介绍
 
-######0 总体
+###### 0 总体
 <pre>
 html/JS/CSS + golang + DB
 </pre>
 
-######1 UI
+###### 1 UI
 <pre>
 AngularJS;jQuery
 </pre>
 
-######2 后台
+###### 2 后台
 <pre>
 Beego
 </pre>
 
-######3 数据库
+###### 3 数据库
 <pre>
 SQLite Or Redis
 </pre>
